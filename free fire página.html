@@ -1,0 +1,180 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>yeison.Æ Oficial Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Playfair+Display:wght@700&display=swap');
+        
+        body { 
+            font-family: 'Outfit', sans-serif; 
+            background: linear-gradient(180deg, #FCD116 0%, #003893 50%, #CE1126 100%);
+            margin: 0; 
+            height: 100vh; 
+            width: 100vw;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            overflow: hidden;
+        }
+
+        #ambient-bg {
+            position: absolute; 
+            width: 100%; 
+            height: 100%;
+            background: linear-gradient(180deg, rgba(252, 209, 22, 0.6) 0%, rgba(0, 56, 147, 0.6) 50%, rgba(206, 17, 38, 0.6) 100%);
+            z-index: 0; 
+            filter: blur(30px);
+            animation: moveLight 8s infinite alternate;
+        }
+
+        @keyframes moveLight { from { transform: translateY(-30px); } to { transform: translateY(30px); } }
+
+        .content-container {
+            position: relative; 
+            z-index: 1; 
+            background: rgba(10, 15, 30, 0.7); 
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            padding: 2rem; 
+            border-radius: 2rem;
+            width: 320px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-img-container { 
+            position: relative; 
+            width: 150px; 
+            height: 150px; 
+            border-radius: 50%; 
+            border: 4px solid #fff; 
+            overflow: hidden; 
+            box-shadow: 0 0 20px rgba(0,0,0,0.5); 
+            margin-bottom: 1.5rem; 
+            background-color: #000;
+        }
+        
+        .profile-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+
+        .ff-overlay {
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem; 
+            font-weight: 700; 
+            font-style: italic;
+            background: linear-gradient(to bottom, #FFF700, #D4AF37);
+            -webkit-background-clip: text; 
+            color: transparent;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
+            pointer-events: none; 
+            z-index: 2;
+        }
+
+        .btn-wrapper {
+            position: relative; 
+            width: 280px; 
+            height: 50px; 
+            margin-bottom: 1.2rem;
+            padding: 3px; 
+            border-radius: 1rem; 
+            overflow: hidden;
+            background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff0000);
+            background-size: 400%; 
+            animation: animateBorder 20s linear infinite;
+        }
+
+        @keyframes animateBorder { 0% { background-position: 0 0; } 50% { background-position: 400% 0; } 100% { background-position: 0 0; } }
+
+        .btn-social {
+            background: #111; 
+            color: white; 
+            width: 100%; 
+            height: 100%; 
+            text-align: center;
+            border-radius: 0.8rem; 
+            font-weight: 900; 
+            cursor: pointer;
+            position: relative; 
+            z-index: 1; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border: none;
+        }
+
+        .content-wrapper { display: flex; align-items: center; justify-content: center; transition: opacity 0.3s; }
+        .loading-bar { position: absolute; left: 0; top: 0; height: 100%; width: 0%; background: #22c55e; border-radius: 0.8rem; }
+        .percent-text { position: absolute; width: 100%; text-align: center; font-weight: 900; display: none; z-index: 2; }
+    </style>
+</head>
+<body>
+
+    <div id="ambient-bg"></div>
+
+    <div class="content-container">
+        <div class="profile-img-container">
+            <img src="Screenshot_20260708_025044_TikTok.jpg" class="profile-img" alt="Foto de perfil">
+            <div class="ff-overlay">FF</div>
+        </div>
+        
+        <h1 class="text-white text-3xl font-black mb-6">YEISON.Æ</h1>
+        
+        <div class="w-full flex flex-col items-center">
+            <div class="btn-wrapper">
+                <button class="btn-social" onclick="startLoading(this, 'https://www.tiktok.com/@yeison_ae?_r=1&_t=ZP-97rAlq2groU')">
+                    <div class="loading-bar"></div>
+                    <div class="percent-text">0%</div>
+                    <div class="content-wrapper"><span>TIK TOK</span></div>
+                </button>
+            </div>
+            <div class="btn-wrapper">
+                <button class="btn-social" onclick="startLoading(this, 'https://www.instagram.com/yeison.ae?igsh=ZmR1bWhkbmQzNDY=')">
+                    <div class="loading-bar"></div>
+                    <div class="percent-text">0%</div>
+                    <div class="content-wrapper"><span>INSTAGRAM</span></div>
+                </button>
+            </div>
+            <div class="btn-wrapper">
+                <button class="btn-social" onclick="startLoading(this, 'https://discord.gg/ZW2CRM3nG')">
+                    <div class="loading-bar"></div>
+                    <div class="percent-text">0%</div>
+                    <div class="content-wrapper"><span>DISCORD</span></div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function startLoading(btn, url) {
+            document.querySelectorAll('.btn-social').forEach(b => b.style.pointerEvents = 'none');
+            const bar = btn.querySelector('.loading-bar');
+            const wrapper = btn.querySelector('.content-wrapper');
+            const percent = btn.querySelector('.percent-text');
+            wrapper.style.opacity = '0';
+            percent.style.display = 'block';
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 2;
+                bar.style.width = progress + '%';
+                percent.innerText = progress + '%';
+                if (progress >= 100) { clearInterval(interval); window.location.href = url; }
+            }, 60);
+        }
+    </script>
+</body>
+</html>
+
+```
